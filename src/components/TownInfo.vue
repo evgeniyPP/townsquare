@@ -12,7 +12,7 @@
       }"
     ></li>
     <li v-if="players.length - teams.traveler < 5">
-      Please add more players!
+      Добавьте больше игроков!
     </li>
     <li>
       <span class="meta" v-if="!edition.isOfficial">
@@ -64,7 +64,7 @@
         />
       </span>
       <span v-if="grimoire.isNight">
-        Night phase
+        Фаза Ночи
         <font-awesome-icon :icon="['fas', 'cloud-moon']" />
       </span>
     </li>
@@ -131,7 +131,7 @@ export default {
     .meta {
       text-align: center;
       flex-basis: 100%;
-      font-family: PiratesBay, sans-serif;
+      font-family: Papyrus, sans-serif;
       font-weight: normal;
     }
 

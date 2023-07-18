@@ -82,9 +82,9 @@ export default {
         }
       });
 
-      reminders.push({ role: "good", name: "Good" });
-      reminders.push({ role: "evil", name: "Evil" });
-      reminders.push({ role: "custom", name: "Custom note" });
+      reminders.push({ role: "good", name: "Добрый" });
+      reminders.push({ role: "evil", name: "Злой" });
+      reminders.push({ role: "custom", name: "Своя заметка" });
       return reminders;
     },
     ...mapState(["modals", "grimoire"]),
@@ -95,7 +95,7 @@ export default {
       const player = this.$store.state.players.players[this.playerIndex];
       let value;
       if (reminder.role === "custom") {
-        const name = prompt("Add a custom reminder note");
+        const name = prompt("Введите свою заметку");
         if (!name) return;
         value = [...player.reminders, { role: "custom", name }];
       } else {

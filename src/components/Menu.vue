@@ -4,11 +4,7 @@
       class="nomlog-summary"
       v-show="session.voteHistory.length && session.sessionId"
       @click="toggleModal('voteHistory')"
-      :title="
-        `${session.voteHistory.length} recent ${
-          session.voteHistory.length == 1 ? 'nomination' : 'nominations'
-        }`
-      "
+      :title="`${session.voteHistory.length} недавних номинаций`"
     >
       <font-awesome-icon icon="book-dead" />
       {{ session.voteHistory.length }}
@@ -22,8 +18,8 @@
       v-if="session.sessionId"
       @click="leaveSession"
       :title="
-        `${session.playerCount} other players in this session${
-          session.ping ? ' (' + session.ping + 'ms latency)' : ''
+        `${session.playerCount} других игроков в сессии${
+          session.ping ? ' (' + session.ping + 'мс)' : ''
         }`
       "
     >
@@ -47,19 +43,19 @@
 
         <template v-if="tab === 'grimoire'">
           <!-- Grimoire -->
-          <li class="headline">Grimoire</li>
+          <li class="headline">Гримуар</li>
           <li @click="toggleGrimoire" v-if="players.length">
-            <template v-if="!grimoire.isPublic">Hide</template>
-            <template v-if="grimoire.isPublic">Show</template>
+            <template v-if="!grimoire.isPublic">Скрыть</template>
+            <template v-if="grimoire.isPublic">Показать</template>
             <em>[G]</em>
           </li>
           <li @click="toggleNight" v-if="!session.isSpectator">
-            <template v-if="!grimoire.isNight">Switch to Night</template>
-            <template v-if="grimoire.isNight">Switch to Day</template>
+            <template v-if="!grimoire.isNight">Перейти к Ночи</template>
+            <template v-if="grimoire.isNight">Перейти ко Дню</template>
             <em>[S]</em>
           </li>
           <li @click="toggleNightOrder" v-if="players.length">
-            Night order
+            Порядок ночи
             <em>
               <font-awesome-icon
                 :icon="[
@@ -70,7 +66,7 @@
             </em>
           </li>
           <li v-if="players.length">
-            Zoom
+            Зум
             <em>
               <font-awesome-icon
                 @click="setZoom(grimoire.zoom - 1)"
@@ -84,11 +80,11 @@
             </em>
           </li>
           <li @click="setBackground">
-            Background image
+            Фон
             <em><font-awesome-icon icon="image"/></em>
           </li>
           <li v-if="!edition.isOfficial" @click="imageOptIn">
-            <small>Show Custom Images</small>
+            <small>Показать кастомные изображения</small>
             <em
               ><font-awesome-icon
                 :icon="[
@@ -98,14 +94,14 @@
             /></em>
           </li>
           <li @click="toggleStatic">
-            Disable Animations
+            Без анимаций
             <em
               ><font-awesome-icon
                 :icon="['fas', grimoire.isStatic ? 'check-square' : 'square']"
             /></em>
           </li>
           <li @click="toggleMuted">
-            Mute Sounds
+            Без звука
             <em
               ><font-awesome-icon
                 :icon="['fas', grimoire.isMuted ? 'volume-mute' : 'volume-up']"
@@ -116,36 +112,36 @@
         <template v-if="tab === 'session'">
           <!-- Session -->
           <li class="headline" v-if="session.sessionId">
-            {{ session.isSpectator ? "Playing" : "Hosting" }}
+            {{ session.isSpectator ? "Игра" : "Хостинг" }}
           </li>
           <li class="headline" v-else>
-            Live Session
+            Сессия
           </li>
           <template v-if="!session.sessionId">
-            <li @click="hostSession">Host (Storyteller)<em>[H]</em></li>
-            <li @click="joinSession">Join (Player)<em>[J]</em></li>
+            <li @click="hostSession">Рассказчик<em>[H]</em></li>
+            <li @click="joinSession">Игрок<em>[J]</em></li>
           </template>
           <template v-else>
             <li v-if="session.ping">
-              Delay to {{ session.isSpectator ? "host" : "players" }}
-              <em>{{ session.ping }}ms</em>
+              Пинг {{ session.isSpectator ? "хоста" : "игроков" }}
+              <em>{{ session.ping }}мс</em>
             </li>
             <li @click="copySessionUrl">
-              Copy player link
+              Копировать ссылку
               <em><font-awesome-icon icon="copy"/></em>
             </li>
             <li v-if="!session.isSpectator" @click="distributeRoles">
-              Send Characters
+              Отослать персонажей
               <em><font-awesome-icon icon="theater-masks"/></em>
             </li>
             <li
               v-if="session.voteHistory.length || !session.isSpectator"
               @click="toggleModal('voteHistory')"
             >
-              Vote history<em>[V]</em>
+              История голосований<em>[V]</em>
             </li>
             <li @click="leaveSession">
-              Leave Session
+              Покинуть сессию
               <em>{{ session.sessionId }}</em>
             </li>
           </template>
@@ -153,60 +149,62 @@
 
         <template v-if="tab === 'players' && !session.isSpectator">
           <!-- Users -->
-          <li class="headline">Players</li>
-          <li @click="addPlayer" v-if="players.length < 20">Add<em>[A]</em></li>
+          <li class="headline">Игроки</li>
+          <li @click="addPlayer" v-if="players.length < 20">
+            Добавить<em>[A]</em>
+          </li>
           <li @click="randomizeSeatings" v-if="players.length > 2">
-            Randomize
+            Зарандомить
             <em><font-awesome-icon icon="dice"/></em>
           </li>
           <li @click="clearPlayers" v-if="players.length">
-            Remove all
+            Удалить всех
             <em><font-awesome-icon icon="trash-alt"/></em>
           </li>
         </template>
 
         <template v-if="tab === 'characters'">
           <!-- Characters -->
-          <li class="headline">Characters</li>
+          <li class="headline">Персонажи</li>
           <li v-if="!session.isSpectator" @click="toggleModal('edition')">
-            Select Edition
+            Выбрать Версию
             <em>[E]</em>
           </li>
           <li
             @click="toggleModal('roles')"
             v-if="!session.isSpectator && players.length > 4"
           >
-            Choose & Assign
+            Назначить
             <em>[C]</em>
           </li>
           <li v-if="!session.isSpectator" @click="toggleModal('fabled')">
-            Add Fabled
+            Легенды
             <em><font-awesome-icon icon="dragon"/></em>
           </li>
           <li @click="clearRoles" v-if="players.length">
-            Remove all
+            Удалить всех
             <em><font-awesome-icon icon="trash-alt"/></em>
           </li>
         </template>
 
         <template v-if="tab === 'help'">
           <!-- Help -->
-          <li class="headline">Help</li>
+          <li class="headline">Помощь</li>
           <li @click="toggleModal('reference')">
-            Reference Sheet
+            Справка
             <em>[R]</em>
           </li>
           <li @click="toggleModal('nightOrder')">
-            Night Order Sheet
+            Порядок ночи
             <em>[N]</em>
           </li>
           <li @click="toggleModal('gameState')">
-            Game State JSON
+            JSON игры
             <em><font-awesome-icon icon="file-code"/></em>
           </li>
           <li>
             <a href="https://discord.gg/Gd7ybwWbFk" target="_blank">
-              Join Discord
+              Discord
             </a>
             <em>
               <a href="https://discord.gg/Gd7ybwWbFk" target="_blank">
@@ -216,10 +214,20 @@
           </li>
           <li>
             <a href="https://github.com/bra1n/townsquare" target="_blank">
-              Source code
+              Github оригинала
             </a>
             <em>
               <a href="https://github.com/bra1n/townsquare" target="_blank">
+                <font-awesome-icon :icon="['fab', 'github']" />
+              </a>
+            </em>
+          </li>
+          <li>
+            <a href="https://github.com/evgeniyPP/townsquare" target="_blank">
+              Github перевода
+            </a>
+            <em>
+              <a href="https://github.com/evgeniyPP/townsquare" target="_blank">
                 <font-awesome-icon :icon="['fab', 'github']" />
               </a>
             </em>
@@ -245,7 +253,7 @@ export default {
   },
   methods: {
     setBackground() {
-      const background = prompt("Enter custom background URL");
+      const background = prompt("Введите URL своего фона");
       if (background || background === "") {
         this.$store.commit("setBackground", background);
       }
@@ -253,7 +261,7 @@ export default {
     hostSession() {
       if (this.session.sessionId) return;
       const sessionId = prompt(
-        "Enter a channel number / name for your session",
+        "Введите номер канала / имя вашей сессии",
         Math.round(Math.random() * 10000)
       );
       if (sessionId) {
@@ -271,7 +279,7 @@ export default {
     distributeRoles() {
       if (this.session.isSpectator) return;
       const popup =
-        "Do you want to distribute assigned characters to all SEATED players?";
+        "Вы хотите отослать выбранных персонажей всем СИДЯЩИМ игрокам?";
       if (confirm(popup)) {
         this.$store.commit("session/distributeRoles", true);
         setTimeout(
@@ -284,7 +292,7 @@ export default {
     },
     imageOptIn() {
       const popup =
-        "Are you sure you want to allow custom images? A malicious script file author might track your IP address this way.";
+        "Вы уверены, что хотите разрешить кастомные изображения? Таким образом вредоносный скрипт автора файла может отследить ваш адрес IP.";
       if (this.grimoire.isImageOptIn || confirm(popup)) {
         this.toggleImageOptIn();
       }
@@ -292,7 +300,7 @@ export default {
     joinSession() {
       if (this.session.sessionId) return this.leaveSession();
       let sessionId = prompt(
-        "Enter the channel number / name of the session you want to join"
+        "Введите номер канала / имя сессии, к которой вы хотите присоединиться"
       );
       if (sessionId.match(/^https?:\/\//i)) {
         sessionId = sessionId.split("#").pop();
@@ -305,7 +313,7 @@ export default {
       }
     },
     leaveSession() {
-      if (confirm("Are you sure you want to leave the active live game?")) {
+      if (confirm("Вы уверены, что хотите покинуть активную игру?")) {
         this.$store.commit("session/setSpectator", false);
         this.$store.commit("session/setSessionId", "");
       }
@@ -313,20 +321,20 @@ export default {
     addPlayer() {
       if (this.session.isSpectator) return;
       if (this.players.length >= 20) return;
-      const name = prompt("Player name");
+      const name = prompt("Имя игрока");
       if (name) {
         this.$store.commit("players/add", name);
       }
     },
     randomizeSeatings() {
       if (this.session.isSpectator) return;
-      if (confirm("Are you sure you want to randomize seatings?")) {
+      if (confirm("Вы уверены, что хотите зарандомить посадку?")) {
         this.$store.dispatch("players/randomize");
       }
     },
     clearPlayers() {
       if (this.session.isSpectator) return;
-      if (confirm("Are you sure you want to remove all players?")) {
+      if (confirm("Вы уверены, что хотите удалить всех игроков?")) {
         // abort vote if in progress
         if (this.session.nomination) {
           this.$store.commit("session/nomination");
@@ -335,7 +343,7 @@ export default {
       }
     },
     clearRoles() {
-      if (confirm("Are you sure you want to remove all player roles?")) {
+      if (confirm("Вы уверены, что хотите удалить роли все игроков?")) {
         this.$store.dispatch("players/clearRoles");
       }
     },
@@ -519,7 +527,7 @@ export default {
     }
 
     .headline {
-      font-family: PiratesBay, sans-serif;
+      font-family: Papyrus, sans-serif;
       letter-spacing: 1px;
       padding: 0 10px;
       text-align: center;

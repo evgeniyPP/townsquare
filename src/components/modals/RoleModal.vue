@@ -1,16 +1,24 @@
 <template>
   <Modal v-if="modals.role && availableRoles.length" @close="close">
     <h3>
-      Choose a new character for
+      Выберите нового персонажа для
       {{
-        playerIndex >= 0 && players.length
-          ? players[playerIndex].name
-          : "bluffing"
+        playerIndex >= 0 && players.length ? players[playerIndex].name : "блефа"
       }}
     </h3>
     <ul class="tokens" v-if="tab === 'editionRoles' || !otherTravelers.size">
       <li
-        v-for="role in availableRoles"
+        v-for="role in availableRoles.filter(r => r.team !== 'traveler')"
+        :class="[role.team]"
+        :key="role.id"
+        @click="setRole(role)"
+      >
+        <Token :role="role" />
+      </li>
+    </ul>
+    <ul class="tokens" v-if="tab === 'editionTravelers'">
+      <li
+        v-for="role in availableRoles.filter(r => r.team === 'traveler')"
         :class="[role.team]"
         :key="role.id"
         @click="setRole(role)"
@@ -28,21 +36,25 @@
         <Token :role="role" />
       </li>
     </ul>
-    <div
-      class="button-group"
-      v-if="playerIndex >= 0 && otherTravelers.size && !session.isSpectator"
-    >
+    <div class="button-group">
       <span
         class="button"
         :class="{ townsfolk: tab === 'editionRoles' }"
         @click="tab = 'editionRoles'"
-        >Edition Roles</span
+        >Роли Версии</span
       >
       <span
         class="button"
+        :class="{ townsfolk: tab === 'editionTravelers' }"
+        @click="tab = 'editionTravelers'"
+        >Путники Версии</span
+      >
+      <span
+        v-if="playerIndex >= 0 && otherTravelers.size && !session.isSpectator"
+        class="button"
         :class="{ townsfolk: tab === 'otherTravelers' }"
         @click="tab = 'otherTravelers'"
-        >Other Travelers</span
+        >Другие Путники</span
       >
     </div>
   </Modal>

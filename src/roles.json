@@ -1,153 +1,150 @@
 [
   {
     "id": "washerwoman",
-    "name": "Washerwoman",
+    "name": "Прачка",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 33,
-    "firstNightReminder": "Show the character token of a Townsfolk in play. Point to two players, one of which is that character.",
+    "firstNightReminder": "Выберите Местного в игре. Укажите на двух игроков, одним из которых является этот персонаж.",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["Townsfolk",
-        "Wrong"],
+    "reminders": ["Местный", "Ложь"],
     "setup": false,
-    "ability": "You start knowing that 1 of 2 players is a particular Townsfolk."
+    "ability": "Вы начинаете игру, зная, что один из двух игроков определенный Местный."
   },
   {
     "id": "librarian",
-    "name": "Librarian",
+    "name": "Библиотекарь",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 34,
-    "firstNightReminder": "Show the character token of an Outsider in play. Point to two players, one of which is that character.",
+    "firstNightReminder": "Выберите Приезжего в игре. Укажите на двух игроков, одним из которых является этот персонаж.",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["Outsider",
-        "Wrong"],
+    "reminders": ["Приезжий", "Ложь"],
     "setup": false,
-    "ability": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)"
+    "ability": "Вы начинаете игру, зная, что один из двух игроков определенный Приезжий (или что их нет в игре)."
   },
   {
     "id": "investigator",
-    "name": "Investigator",
+    "name": "Сыщик",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 35,
-    "firstNightReminder": "Show the character token of a Minion in play. Point to two players, one of which is that character.",
+    "firstNightReminder": "Выберите Миньона в игре. Укажите на двух игроков, одним из которых является этот персонаж.",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["Minion",
-        "Wrong"],
+    "reminders": ["Миньон", "Ложь"],
     "setup": false,
-    "ability": "You start knowing that 1 of 2 players is a particular Minion."
+    "ability": "Вы начинаете игру, зная, что один из двух игроков определенный Миньон."
   },
   {
     "id": "chef",
-    "name": "Chef",
+    "name": "Повар",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 36,
-    "firstNightReminder": "Show the finger signal (0, 1, 2, \u2026) for the number of pairs of neighbouring evil players.",
+    "firstNightReminder": "Сообщите, сколько пар злых игроков сидят по соседству.",
     "otherNight": 0,
     "otherNightReminder": "",
     "reminders": [],
     "setup": false,
-    "ability": "You start knowing how many pairs of evil players there are."
+    "ability": "Вы начинаете игру, зная, сколько пар злых игроков сидят по соседству."
   },
   {
     "id": "empath",
-    "name": "Empath",
+    "name": "Эмпат",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 37,
-    "firstNightReminder": "Show the finger signal (0, 1, 2) for the number of evil alive neighbours of the Empath.",
+    "firstNightReminder": "Сообщите, сколько живых соседей Эмпата злые игроки.",
     "otherNight": 53,
-    "otherNightReminder": "Show the finger signal (0, 1, 2) for the number of evil neighbours.",
+    "otherNightReminder": "Сообщите, сколько живых соседей Эмпата злые игроки.",
     "reminders": [],
     "setup": false,
-    "ability": "Each night, you learn how many of your 2 alive neighbours are evil."
+    "ability": "Каждую ночь вы узнаете, сколько ваших живых соседей злые игроки."
   },
   {
     "id": "fortuneteller",
-    "name": "Fortune Teller",
+    "name": "Ясновидящая",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 38,
-    "firstNightReminder": "The Fortune Teller points to two players. Give the head signal (nod yes, shake no) for whether one of those players is the Demon. ",
+    "firstNightReminder": "Ясновидящая указывает на двух игроков. Сообщите, есть ли среди них Демон.",
     "otherNight": 54,
-    "otherNightReminder": "The Fortune Teller points to two players. Show the head signal (nod 'yes', shake 'no') for whether one of those players is the Demon.",
-    "reminders": ["Red herring"],
+    "otherNightReminder": "Ясновидящая указывает на двух игроков. Сообщите, есть ли среди них Демон.",
+    "reminders": ["Обманка"],
     "setup": false,
-    "ability": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you."
+    "ability": "Каждую ночь вы выбираете двух игроков и узнаете, есть ли среди них Демон. Один добрый игрок регистрируется для вас как Демон."
   },
   {
     "id": "undertaker",
-    "name": "Undertaker",
+    "name": "Гробовщик",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 55,
-    "otherNightReminder": "If a player was executed today: Show that player\u2019s character token.",
-    "reminders": ["Executed"],
+    "otherNightReminder": "Если игрок был казнен сегодня, сообщите Гробовщику его персонажа.",
+    "reminders": ["Казнен"],
     "setup": false,
-    "ability": "Each night*, you learn which character died by execution today."
+    "ability": "Каждую ночь* вы узнаете персонажа игрока, который был казнен сегодня."
   },
   {
     "id": "monk",
-    "name": "Monk",
+    "name": "Монах",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 12,
-    "otherNightReminder": "The previously protected player is no longer protected. The Monk points to a player not themself. Mark that player 'Protected'.",
-    "reminders": ["Protected"],
+    "otherNightReminder": "Предыдущий защищенный игрок теряет защиту. Монах выбирает игрока (не себя). Этот игрок защищен.",
+    "reminders": ["Защищен"],
     "setup": false,
-    "ability": "Each night*, choose a player (not yourself): they are safe from the Demon tonight."
+    "ability": "Каждую ночь* вы выбираете игрока (не себя): сегодня ночью он защищен от Демона."
   },
   {
     "id": "ravenkeeper",
-    "name": "Ravenkeeper",
+    "name": "Воронщик",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 52,
-    "otherNightReminder": "If the Ravenkeeper died tonight: The Ravenkeeper points to a player. Show that player\u2019s character token.",
+    "otherNightReminder": "Если Воронщик умер сегодня ночью, он выбирает игрока. Сообщите ему персонажа этого игрока.",
     "reminders": [],
     "setup": false,
-    "ability": "If you die at night, you are woken to choose a player: you learn their character."
+    "ability": "Если вы умрете ночью, вы просыпаетесь, выбираете игрока и узнаете его персонажа."
   },
   {
     "id": "virgin",
-    "name": "Virgin",
+    "name": "Девственник",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["No ability"],
+    "reminders": ["Нет способности"],
     "setup": false,
-    "ability": "The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately."
+    "ability": "Когда вас номинируют в первый раз, если номинирующий\u00a0–\u00a0Местный, он немедленно казнен."
   },
   {
     "id": "slayer",
-    "name": "Slayer",
+    "name": "Истребитель",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 0,
     "otherNightReminder": "",
-    "reminders": ["No ability"],
+    "reminders": ["Нет способности"],
     "setup": false,
-    "ability": "Once per game, during the day, publicly choose a player: if they are the Demon, they die."
+    "ability": "Раз за игру в течение дня публично выберите игрока: если он Демон, он умирает."
   },
   {
     "id": "soldier",
-    "name": "Soldier",
+    "name": "Солдат",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
@@ -156,11 +153,11 @@
     "otherNightReminder": "",
     "reminders": [],
     "setup": false,
-    "ability": "You are safe from the Demon."
+    "ability": "Вы защищены от Демона."
   },
   {
     "id": "mayor",
-    "name": "Mayor",
+    "name": "Мэр",
     "edition": "tb",
     "team": "townsfolk",
     "firstNight": 0,
@@ -169,24 +166,24 @@
     "otherNightReminder": "",
     "reminders": [],
     "setup": false,
-    "ability": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead."
+    "ability": "Если в живых только 3 игрока и сегодня не было казней, ваша команда побеждает. Если вас хотят убить ночью, вместо вас может умереть другой игрок."
   },
   {
     "id": "butler",
-    "name": "Butler",
+    "name": "Дворецкий",
     "edition": "tb",
     "team": "outsider",
     "firstNight": 39,
-    "firstNightReminder": "The Butler points to a player. Mark that player as 'Master'.",
+    "firstNightReminder": "Дворецкий выбирает игрока. Он становится его Мастером.",
     "otherNight": 67,
-    "otherNightReminder": "The Butler points to a player. Mark that player as 'Master'.",
-    "reminders": ["Master"],
+    "otherNightReminder": "Дворецкий выбирает игрока. Он становится его Мастером.",
+    "reminders": ["Мастер"],
     "setup": false,
-    "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too."
+    "ability": "Каждую ночь вы выбираете игрока (не себя): завтра вы можете голосовать, только если он тоже голосует."
   },
   {
     "id": "drunk",
-    "name": "Drunk",
+    "name": "Пьяница",
     "edition": "tb",
     "team": "outsider",
     "firstNight": 0,
@@ -194,13 +191,13 @@
     "otherNight": 0,
     "otherNightReminder": "",
     "reminders": [],
-    "remindersGlobal": ["Drunk"],
+    "remindersGlobal": ["Пьяница"],
     "setup": true,
-    "ability": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not."
+    "ability": "Вы не знаете, что вы Пьяница. Вы думаете, что вы Местный, но это неправда."
   },
   {
     "id": "recluse",
-    "name": "Recluse",
+    "name": "Отшельник",
     "edition": "tb",
     "team": "outsider",
     "firstNight": 0,
@@ -209,11 +206,11 @@
     "otherNightReminder": "",
     "reminders": [],
     "setup": false,
-    "ability": "You might register as evil & as a Minion or Demon, even if dead."
+    "ability": "Вы можете регистрироваться как злой, как Миньон или Демон, даже если вы мертвы."
   },
   {
     "id": "saint",
-    "name": "Saint",
+    "name": "Святой",
     "edition": "tb",
     "team": "outsider",
     "firstNight": 0,
@@ -222,50 +219,50 @@
     "otherNightReminder": "",
     "reminders": [],
     "setup": false,
-    "ability": "If you die by execution, your team loses."
+    "ability": "Если вас казнят, ваша команда проиграет."
   },
   {
     "id": "poisoner",
-    "name": "Poisoner",
+    "name": "Отравитель",
     "edition": "tb",
     "team": "minion",
     "firstNight": 17,
-    "firstNightReminder": "The Poisoner points to a player. That player is poisoned.",
+    "firstNightReminder": "Отравитель выбирает игрока. Этот игрок отравлен.",
     "otherNight": 7,
-    "otherNightReminder": "The previously poisoned player is no longer poisoned. The Poisoner points to a player. That player is poisoned.",
-    "reminders": ["Poisoned"],
+    "otherNightReminder": "Предыдущий отравленный игрок перестает быть отравлен. Отравитель выбирает игрока. Этот игрок отравлен.",
+    "reminders": ["Отравлен"],
     "setup": false,
-    "ability": "Each night, choose a player: they are poisoned tonight and tomorrow day."
+    "ability": "Каждую ночь вы выбираете игрока: он отравлен сегодня ночью и завтра днем."
   },
   {
     "id": "spy",
-    "name": "Spy",
+    "name": "Шпион",
     "edition": "tb",
     "team": "minion",
     "firstNight": 49,
-    "firstNightReminder": "Show the Grimoire to the Spy for as long as they need.",
+    "firstNightReminder": "Покажите Шпиону Гримуар.",
     "otherNight": 68,
-    "otherNightReminder": "Show the Grimoire to the Spy for as long as they need.",
+    "otherNightReminder": "Покажите Шпиону Гримуар.",
     "reminders": [],
     "setup": false,
-    "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead."
+    "ability": "Каждую ночь вы смотрите Гримуар. Вы можете регистрироваться как добрый, как Местный или Приезжий, даже если вы мертвы."
   },
   {
     "id": "scarletwoman",
-    "name": "Scarlet Woman",
+    "name": "Блудница",
     "edition": "tb",
     "team": "minion",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 19,
-    "otherNightReminder": "If the Scarlet Woman became the Demon today: Show the 'You are' card, then the demon token.",
-    "reminders": ["Demon"],
+    "otherNightReminder": "Если Блудница сегодня стала Демоном, сообщите ей об этом.",
+    "reminders": ["Демон"],
     "setup": false,
-    "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don\u2019t count)"
+    "ability": "Если Демон умирает, когда в игре 5 или больше игроков, вы становитесь Демоном."
   },
   {
     "id": "baron",
-    "name": "Baron",
+    "name": "Барон",
     "edition": "tb",
     "team": "minion",
     "firstNight": 0,
@@ -274,20 +271,20 @@
     "otherNightReminder": "",
     "reminders": [],
     "setup": true,
-    "ability": "There are extra Outsiders in play. [+2 Outsiders]"
+    "ability": "В игре на два Приезжих больше, чем должно быть. [+2\u00a0Приезжих]"
   },
   {
     "id": "imp",
-    "name": "Imp",
+    "name": "Чёрт",
     "edition": "tb",
     "team": "demon",
     "firstNight": 0,
     "firstNightReminder": "",
     "otherNight": 24,
-    "otherNightReminder": "The Imp points to a player. That player dies. If the Imp chose themselves: Replace the character of 1 alive minion with a spare Imp token. Show the 'You are' card, then the Imp token.",
-    "reminders": ["Dead"],
+    "otherNightReminder": "Чёрт выбирает игрока. Этот игрок умирает. Если Чёрт выбирает себя, один из Миньонов становится Чёртом.",
+    "reminders": ["Убит"],
     "setup": false,
-    "ability": "Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp."
+    "ability": "Каждую ночь* вы выбираете игрока: он умирает. Если вы выбираете себя, один из Миньонов становится Чёртом."
   },
   {
     "id": "bureaucrat",

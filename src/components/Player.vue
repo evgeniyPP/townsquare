@@ -47,38 +47,38 @@
         <font-awesome-icon
           icon="hand-paper"
           class="vote"
-          title="Hand UP"
+          title="Поднять руку"
           @click="vote()"
         />
         <font-awesome-icon
           icon="times"
           class="vote"
-          title="Hand DOWN"
+          title="Опустить руку"
           @click="vote()"
         />
         <font-awesome-icon
           icon="times-circle"
           class="cancel"
-          title="Cancel"
+          title="Отменить"
           @click="cancel()"
         />
         <font-awesome-icon
           icon="exchange-alt"
           class="swap"
           @click="swapPlayer(player)"
-          title="Swap seats with this player"
+          title="Поменять местами с этим игроком"
         />
         <font-awesome-icon
           icon="redo-alt"
           class="move"
           @click="movePlayer(player)"
-          title="Move player to this seat"
+          title="Переместить игрока на это место"
         />
         <font-awesome-icon
           icon="hand-point-right"
           class="nominate"
           @click="nominatePlayer(player)"
-          title="Nominate this player"
+          title="Номинировать этого игрока"
         />
       </div>
 
@@ -96,7 +96,7 @@
         class="has-vote"
         v-if="player.isDead && !player.isVoteless"
         @click="updatePlayer('isVoteless', true)"
-        title="Ghost vote"
+        title="Голос призрака"
       />
 
       <!-- On block icon -->
@@ -109,50 +109,37 @@
         :class="{ active: isMenuOpen }"
       >
         <span>{{ player.name }}</span>
-        <font-awesome-icon icon="venus-mars" v-if="player.pronouns" />
-        <div class="pronouns" v-if="player.pronouns">
-          <span>{{ player.pronouns }}</span>
-        </div>
       </div>
 
       <transition name="fold">
         <ul class="menu" v-if="isMenuOpen">
-          <li
-            @click="changePronouns"
-            v-if="
-              !session.isSpectator ||
-                (session.isSpectator && player.id === session.playerId)
-            "
-          >
-            <font-awesome-icon icon="venus-mars" />Change Pronouns
-          </li>
           <template v-if="!session.isSpectator">
             <li @click="changeName">
-              <font-awesome-icon icon="user-edit" />Rename
+              <font-awesome-icon icon="user-edit" />Переименовать
             </li>
             <li @click="movePlayer()" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="redo-alt" />
-              Move player
+              Переместить игрока
             </li>
             <li @click="swapPlayer()" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="exchange-alt" />
-              Swap seats
+              Поменять местами
             </li>
             <li @click="removePlayer" :class="{ disabled: session.lockedVote }">
               <font-awesome-icon icon="times-circle" />
-              Remove
+              Удалить
             </li>
             <li
               @click="updatePlayer('id', '', true)"
               v-if="player.id && session.sessionId"
             >
               <font-awesome-icon icon="chair" />
-              Empty seat
+              Пустое место
             </li>
             <template v-if="!session.nomination">
               <li @click="nominatePlayer()">
                 <font-awesome-icon icon="hand-point-right" />
-                Nomination
+                Номинировать
               </li>
             </template>
           </template>
@@ -163,12 +150,12 @@
           >
             <font-awesome-icon icon="chair" />
             <template v-if="!player.id">
-              Claim seat
+              Занять место
             </template>
             <template v-else-if="player.id === session.playerId">
-              Vacate seat
+              Освободить место
             </template>
-            <template v-else> Seat occupied</template>
+            <template v-else> Место занято</template>
           </li>
         </ul>
       </transition>
@@ -253,15 +240,6 @@ export default {
     };
   },
   methods: {
-    changePronouns() {
-      if (this.session.isSpectator && this.player.id !== this.session.playerId)
-        return;
-      const pronouns = prompt("Player pronouns", this.player.pronouns);
-      //Only update pronouns if not null (prompt was not cancelled)
-      if (pronouns !== null) {
-        this.updatePlayer("pronouns", pronouns, true);
-      }
-    },
     toggleStatus() {
       if (this.grimoire.isPublic) {
         if (!this.player.isDead) {
@@ -287,7 +265,7 @@ export default {
     },
     changeName() {
       if (this.session.isSpectator) return;
-      const name = prompt("Player name", this.player.name) || this.player.name;
+      const name = prompt("Имя игрока", this.player.name) || this.player.name;
       this.updatePlayer("name", name, true);
     },
     removeReminder(reminder) {

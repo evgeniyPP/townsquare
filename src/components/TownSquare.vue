@@ -30,8 +30,8 @@
       :class="{ closed: !isBluffsOpen }"
     >
       <h3>
-        <span v-if="session.isSpectator">Other characters</span>
-        <span v-else>Demon bluffs</span>
+        <span v-if="session.isSpectator">Другие персонажи</span>
+        <span v-else>Блефы Демона</span>
         <font-awesome-icon icon="times-circle" @click.stop="toggleBluffs" />
         <font-awesome-icon icon="plus-circle" @click.stop="toggleBluffs" />
       </h3>
@@ -48,7 +48,7 @@
 
     <div class="fabled" :class="{ closed: !isFabledOpen }" v-if="fabled.length">
       <h3>
-        <span>Fabled</span>
+        <span>Легенда</span>
         <font-awesome-icon icon="times-circle" @click.stop="toggleFabled" />
         <font-awesome-icon icon="plus-circle" @click.stop="toggleFabled" />
       </h3>
@@ -155,7 +155,7 @@ export default {
       if (this.session.isSpectator || this.session.lockedVote) return;
       if (
         confirm(
-          `Do you really want to remove ${this.players[playerIndex].name}?`
+          `Вы уверены, что хотите удалить ${this.players[playerIndex].name}?`
         )
       ) {
         const { nomination } = this.session;
@@ -570,7 +570,7 @@ export default {
       rgba(0, 0, 0, 0.5) 20%
     );
     &:before {
-      content: "First Night";
+      content: "1 ночь";
     }
     &:after {
       border-left-color: $townsfolk;
@@ -583,7 +583,7 @@ export default {
     left: 120%;
     background: linear-gradient(to right, $demon 0%, rgba(0, 0, 0, 0.5) 20%);
     &:before {
-      content: "Other Nights";
+      content: "Др. ночи";
     }
     &:after {
       right: 100%;

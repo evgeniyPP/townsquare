@@ -1,7 +1,7 @@
 <template>
   <Modal class="editions" v-if="modals.edition" @close="toggleModal('edition')">
     <div v-if="!isCustom">
-      <h3>Select an edition:</h3>
+      <h3>Выберите версию:</h3>
       <ul class="editions">
         <li
           v-for="edition in editions"
@@ -24,29 +24,32 @@
             backgroundImage: `url(${require('../../assets/editions/custom.png')})`
           }"
         >
-          Custom Script / Characters
+          Кастомный Скрипт
         </li>
       </ul>
     </div>
     <div class="custom" v-else>
-      <h3>Load custom script / characters</h3>
-      To play with a custom script, you need to select the characters you want
-      to play with in the official
+      <h3>Загрузить кастомный скрипт</h3>
+      Чтобы играть в пользовательский скрипт, вам нужно выбрать персонажей,
+      которыми вы хотите играть, в официальном
       <a href="https://script.bloodontheclocktower.com/" target="_blank"
         >Script Tool</a
-      >
-      and then upload the generated "custom-list.json" either directly here or
-      provide a URL to such a hosted JSON file.<br />
+      >, а затем загрузить сгенерированный custom-list.json либо прямо сюда,
+      либо указать URL-адрес, где размещен подобный JSON-файл.
       <br />
-      To play with custom characters, please read
+      <br />
+      Чтобы поиграть с кастомными персонажами, прочтите
       <a
         href="https://github.com/bra1n/townsquare#custom-characters"
         target="_blank"
-        >the documentation</a
+        >документацию</a
       >
-      on how to write a custom character definition file.
-      <b>Only load custom JSON files from sources that you trust!</b>
-      <h3>Some popular custom scripts:</h3>
+      о том, как написать файл с описанием кастомного персонажа.
+      <b
+        >Загружайте пользовательские файлы JSON только из источников, которым вы
+        доверяете!</b
+      >
+      <h3 style="margin-top: 16px;">Некоторые популярные кастомные скрипты:</h3>
       <ul class="scripts">
         <li
           v-for="(script, index) in scripts"
@@ -64,16 +67,16 @@
       />
       <div class="button-group">
         <div class="button" @click="openUpload">
-          <font-awesome-icon icon="file-upload" /> Upload JSON
+          <font-awesome-icon icon="file-upload" /> Загрузить JSON
         </div>
         <div class="button" @click="promptURL">
-          <font-awesome-icon icon="link" /> Enter URL
+          <font-awesome-icon icon="link" /> Ввести URL
         </div>
         <div class="button" @click="readFromClipboard">
-          <font-awesome-icon icon="clipboard" /> Use JSON from Clipboard
+          <font-awesome-icon icon="clipboard" /> Использовать JSON из Буфера
         </div>
         <div class="button" @click="isCustom = false">
-          <font-awesome-icon icon="undo" /> Back
+          <font-awesome-icon icon="undo" /> Вернуться назад
         </div>
       </div>
     </div>
@@ -143,7 +146,7 @@ export default {
       }
     },
     promptURL() {
-      const url = prompt("Enter URL to a custom-script.json file");
+      const url = prompt("Введите URL файла custom-script.json");
       if (url) {
         this.handleURL(url);
       }
@@ -199,7 +202,7 @@ export default {
 
 <style scoped lang="scss">
 ul.editions .edition {
-  font-family: PiratesBay, sans-serif;
+  font-family: Papyrus, sans-serif;
   letter-spacing: 1px;
   text-align: center;
   padding-top: 15%;

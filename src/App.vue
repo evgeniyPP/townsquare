@@ -134,19 +134,7 @@ export default {
 
 @font-face {
   font-family: "Papyrus";
-  src: url("assets/fonts/papyrus.eot"); /* IE9*/
-  src: url("assets/fonts/papyrus.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("assets/fonts/papyrus.woff2") format("woff2"),
-    /* chrome firefox */ url("assets/fonts/papyrus.woff") format("woff"),
-    /* chrome firefox */ url("assets/fonts/papyrus.ttf") format("truetype"),
-    /* chrome firefox opera Safari, Android, iOS 4.2+*/
-      url("assets/fonts/papyrus.svg#PapyrusW01") format("svg"); /* iOS 4.1- */
-}
-
-@font-face {
-  font-family: PiratesBay;
-  src: url("assets/fonts/piratesbay.ttf");
-  font-display: swap;
+  src: url("assets/fonts/papyrus.ttf") format("truetype");
 }
 
 html,
@@ -186,7 +174,7 @@ h4,
 h5 {
   margin: 0;
   text-align: center;
-  font-family: PiratesBay, sans-serif;
+  font-family: Papyrus, sans-serif;
   letter-spacing: 1px;
   font-weight: normal;
 }

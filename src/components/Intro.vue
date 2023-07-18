@@ -2,30 +2,24 @@
   <div class="intro">
     <img src="static/apple-icon.png" alt="" class="logo" />
     <div>
-      Welcome to the (unofficial)
-      <b>Virtual Town Square and Grimoire</b> for Blood on the Clocktower!
-      Please add more players through the
+      Добро пожаловать на
+      <b>Виртуальную Площадь</b> и в <b>Гримуар</b> для игры Blood on the
+      Clocktower! Пожалуйста, добавьте больше игроков через
       <span class="button" @click="toggleMenu">
-        <font-awesome-icon icon="cog" /> Menu
+        <font-awesome-icon icon="cog" /> Меню
       </span>
-      on the top right or by pressing <b>[A]</b>. You can also join a game
-      session by pressing <b>[J]</b>.<br />
+      в правом верхнем углу или нажатием <b>[A]</b>. Вы также можете
+      присоединиться к игровой сессии, нажав <b>[J]</b>.<br />
       <div class="footer">
-        This project is free and open source and can be found on
-        <a href="https://github.com/bra1n/townsquare" target="_blank">GitHub</a
-        >. It is not affiliated with The Pandemonium Institute. "Blood on the
-        Clocktower" is a trademark of Steven Medway and The Pandemonium
-        Institute.
+        Этот проект в открытом доступе и может быть найден на
+        <a href="https://github.com/bra1n/townsquare" target="_blank">GitHub</a>
+        (<a href="https://github.com/evgeniyPP/townsquare" target="_blank"
+          >перевод</a
+        >). Он никаким образом не связан с The Pandemonium Institute. "Blood on
+        the Clocktower" является торговой маркой Стивена Медвуэй и The
+        Pandemonium Institute.
       </div>
     </div>
-    <a
-      class="redirect"
-      v-if="language === 'zh-CN'"
-      href="https://clocktower.gstonegames.com"
-    >
-      <img src="../assets/gstone.png" class="gstone" alt="" />
-      你想使用中文版魔典吗？
-    </a>
   </div>
 </template>
 
@@ -34,9 +28,7 @@ import { mapMutations } from "vuex";
 
 export default {
   data() {
-    return {
-      language: window.navigator.userLanguage || window.navigator.language
-    };
+    return {};
   },
   methods: mapMutations(["toggleMenu"])
 };
